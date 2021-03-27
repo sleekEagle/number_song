@@ -18,10 +18,7 @@ for i in range(0,1000):
 
 #a number between 0 and 99
 num=99
-def get_mapped(num,min_num,max_num):
-    min_num=0
-    max_num=99
-    num_notes=8
+def get_mapped(num,min_num,max_num,num_notes):
     period=(max_num-min_num)/num_notes
     
     mapped=0
