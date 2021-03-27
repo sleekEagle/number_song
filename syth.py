@@ -12,8 +12,10 @@ s.setMidiInputDevice(2) # Must be called before s.boot()
 s.boot()
 s.start()
 
+a = Sine(mul=0.1).out()
+
 wave = SquareTable()
-osc = Osc(wave, freq=1111, mul=12)
+osc = Osc(wave, freq=1111, mul=5)
 
 # FX
 verb = Freeverb(osc).out()
