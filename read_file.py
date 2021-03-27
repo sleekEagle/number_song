@@ -8,27 +8,45 @@ import threading
 import time
 
 
-number_list=[]
-
-data = open('C:/Users/Owner/code/number_song/sqrt3.txt', 'r')
-def populate_number_list(stop,allowed_len):
-    print('started...')
-    number=''            
-    while True:
-        if stop():
-            print('killing thread')
-            break
-        if(len(number_list)<allowed_len):
-            if(len(number)==2):
-                number_list.append(int(number))
-                number=''
+class Populate:
+    def __init__(self, max_buffer_len,data_file):
+        self.number_list=[]
+        self.data=data = open(data_file, 'r')
+        self.max_buffer_len=max_buffer_len
+        self.stop_populate=False
+        self.t1 = threading.Thread(target = self.populate_number_list, args =((lambda : self.stop_populate,self.max_buffer_len)))
+        
+    def populate_number_list(self,stop,allowed_len):
+        print('started...')
+        number=''            
+        while True:
+            if stop():
+                print('killing thread')
+                break
+            if(len(self.number_list)<self.max_buffer_len):
+                if(len(number)==2):
+                    self.number_list.append(int(number))
+                    number=''
+                
+                char=self.data.read(1)
+                if(char.isdigit()):
+                    number+=char
+            time.sleep(0.001)
             
-            char=data.read(1)
-            if(char.isdigit()):
-                number+=char
-        time.sleep(0.001)
+    def get_number(self):
+        try:
+            return self.number_list.pop(0)
+        except Exception as e:
+            print(e)
+            return -1
+    
+    def start_populating(self):
+        self.stop_populate=False
+        self.t1.start()
+    
+    def kill_populating(self):
+        self.stop_populate=True
+        
 
-stop_populate=True
-stop_populate=False
-t1 = threading.Thread(target = populate_number_list, args =((lambda : stop_populate,500)))
-t1.start()
+
+
