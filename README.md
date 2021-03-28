@@ -1,6 +1,6 @@
 # number_song
 
-##Makking music with Irrational numbers
+## Makking music with Irrational numbers
 An irrational number cannot be expressed as a fraction or a finite number. 
 The decimal places (if we write it down in decimal) goes on an on forever.
 These numbers are apparently random.
@@ -9,27 +9,27 @@ Luckily NASA has calculates several square roots for a few millions of decimal p
 e.g. https://apod.nasa.gov/htmltest/gifcity/sqrt2.1mil
 So we use these. 
 
-##read_file.py 
+## read_file.py 
 populates a buffer from the numbers read from the text file containing an irrational number 
 such as sqrt(2)
 
-##extract_interval_numbers.py
+## extract_interval_numbers.py
 Creates melodies which changes rapidly and slowly. 
 For the rapidly changing melodies, the numbers read from the data file is used (after some processing; described below).
 For slower melodies, a moving average of the above values are used. 
 
-##synth
+## synth
 This uses Pyo library from http://ajaxsoundstudio.com/software/pyo/
 to generate sounds. We are using sine wave, inpulse train and saw tooth wave. 
 All the parameters are configurabel in code. 
 
-##main
+## main
 Ties everything together. This gets numbers read from data file
 and convert them to frequencies. For the base line, numbers are mapped to a 
 lower frequency range. For lead parts, the numbers are mapped to a higher 
 frequency range. 
 
-##progression.txt
+## progression.txt
 You can configure the progression of a song.
 A single line from this file for example is,
 10:1,0,1,0
