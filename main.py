@@ -46,7 +46,7 @@ def main():
     pop.get_numbers(0)
 
 
-    s = Server().boot()
+    s = Server(audio='C:\\Users\\Owner\\code\\number_song\\audio.wav').boot()
     s.start()
     
     base=synth.Synth(fadein=0.02,fadeout=0.02,dur=1.6,mul=0.5,weights=[0.08,0.8,0.2])
