@@ -8,7 +8,7 @@ import threading
 import time
 
 
-class Populate:
+class ReadFile:
     def __init__(self, max_buffer_len,data_file):
         self.number_list=[]
         self.data=data = open(data_file, 'r')
@@ -17,11 +17,11 @@ class Populate:
         self.t1 = threading.Thread(target = self.populate_number_list, args =((lambda : self.stop_populate,self.max_buffer_len)))
         
     def populate_number_list(self,stop,allowed_len):
-        print('started...')
+        print('started file reading thread')
         number=''            
         while True:
             if stop():
-                print('killing thread')
+                print('killing file reading thread')
                 break
             if(len(self.number_list)<self.max_buffer_len):
                 if(len(number)==2):
@@ -40,11 +40,11 @@ class Populate:
             print(e)
             return -1
     
-    def start_populating(self):
+    def start_thread(self):
         self.stop_populate=False
         self.t1.start()
     
-    def kill_populating(self):
+    def kill_thread(self):
         self.stop_populate=True
         
 
