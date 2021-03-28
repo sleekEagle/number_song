@@ -1,0 +1,8 @@
+******pyo library for synthesizing music
+http://ajaxsoundstudio.com/software/pyo/
+documentation:
+http://ajaxsoundstudio.com/pyodoc/index.html
+
+******sqrt(2) and sqrt(3) calculted to millions of decimal places by NASA
+sqrt(2) : https://apod.nasa.gov/htmltest/gifcity/sqrt2.1mil
+sqrt(3) : https://apod.nasa.gov/htmltest/gifcity/sqrt3.1mil

@@ -22,7 +22,7 @@ def main():
     #setting up file paths
     dir = os.path.dirname(synth.__file__)
     progression_file=os.path.join(dir, 'progression.txt')
-    sqrt_file=os.path.join(dir, 'sqrt3.txt')
+    sqrt_file=os.path.join(dir, 'sqrt2.txt')
 
 
     #read parameters
